@@ -44,7 +44,7 @@ jobs:
           python -m pytest test -q
 
   deploy:
-    need: test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
