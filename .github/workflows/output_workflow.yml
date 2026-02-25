@@ -1,4 +1,4 @@
-name: Github Output Workflow
+name: Output Event Issue
 on: workflow_dispatch
 jobs:
   output:
@@ -19,4 +19,4 @@ jobs:
 
       - name: Run output generation
         run: |
-          echo "${{ toJson(github) }}"
+          echo "${{ toJson(github.event) }}"
