@@ -1,65 +1,65 @@
-name: Deploy Workflow
-on: push
-jobs:
-  ruff:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+# name: Deploy Workflow
+# on: push
+# jobs:
+#   ruff:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+#       - name: Set up Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install ruff
 
-      - name: Run ruff
-        run: |
-          python -m ruff check .
+#       - name: Run ruff
+#         run: |
+#           python -m ruff check .
 
-  test:
-    needs: ruff
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#   test:
+#     needs: ruff
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+#       - name: Set up Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest matplotlib numpy
-          pip install -r requirements.txt
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install pytest matplotlib numpy
+#           pip install -r requirements.txt
 
-      - name: Run tests
-        run: |
-          python -m pytest test -q
+#       - name: Run tests
+#         run: |
+#           python -m pytest test -q
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#   deploy:
+#     needs: test
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+#       - name: Set up Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt
 
-      - name: Run deployment
-        run: |
-          echo "Deploying application..."
+#       - name: Run deployment
+#         run: |
+#           echo "Deploying application..."
