@@ -5,6 +5,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+# Add test comment
 
 def _import_no_show(name):
     """Import a module while stubbing out plt.show() so tests don't display GUI."""
