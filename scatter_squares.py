@@ -16,5 +16,5 @@ ax.tick_params(labelsize=14)
 
 ax.ticklabel_format(style = 'plain')
 
-ax.axis([0, 1100, 0, 1100000])
+ax.axis([0, 1100, 0, 1_100_000])
 plt.show()
