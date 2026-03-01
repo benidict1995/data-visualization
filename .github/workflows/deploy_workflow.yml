@@ -100,4 +100,5 @@ jobs:
 
       - name: Run deployment
         run: |
+          echo "Connecting to MongoDB at ${{ env.MONGODB_USERNAME }}"
           echo "Deploying application..."
