@@ -3,6 +3,8 @@ name: Deploy Workflow
 on:
   push:
 
+env:
+  MONGO_DB_NAME: "gha-demo"
 jobs:
   ruff:
     runs-on: ubuntu-latest
@@ -26,6 +28,11 @@ jobs:
 
   test:
     needs: ruff
+    env:
+      MONGODB_CLUSTER_ADDRESS: cluster.mongodb.net
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      PORT: 8080
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
